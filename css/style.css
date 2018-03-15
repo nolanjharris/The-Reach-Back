@@ -88,6 +88,105 @@
 		margin-bottom: 1em;
 	}
 
+	input {
+		border-radius: 4px;
+		border: none;
+		padding: 0 5px;
+	}
+
+	#scorecardHeader {
+		font-size: 4em;
+	}
+
+	#playerCount {
+		/*height: 40vh;*/
+		width: 15vw;
+		border-radius: 5px;
+		color: #202020;
+		font-size: 2.5em;
+		line-height: 1.3em;
+		display: inline-block;
+	}
+
+	#playerCount select {
+		text-decoration: none;
+		padding: 0 20px;
+		margin-top: 5px;
+		background-color: #202020;
+		border-radius: 5px;
+		color: #fff;
+		font-size: 1.2em;
+		border: none;
+		outline: none;
+		box-shadow: none;
+	}
+	#playerNames h3 {
+		width: 100%;
+		line-height: 1.4em;
+	}
+
+	#playerNames {
+		display: inline-block;
+		/*height: 40vh;*/
+		width: 50vw;
+		font-size: 2.5em;
+		vertical-align: top;
+	}
+
+	#playerNames input {
+		padding: 5px 4px;
+		text-align: center;
+		border: 1px solid #202020;
+		margin: 10px 0;
+	}
+
+	#holePar {
+		font-size: 1.3em;
+		font-weight: bold;
+		text-align: center;
+		margin: 20px auto;
+	}
+
+	#holePar select {
+		border-radius: 4px;
+	}
+
+	/*#holeScorecard {
+		display: none;
+	}*/
+
+	#holeScore {
+		margin: 1em auto;
+		font-size: 2em;
+	}
+
+	#holeScore th {
+		font-size: .8em;
+		font-weight: bold;
+		padding-bottom: 0;
+	}
+
+	#holeScore td {
+		padding: .6em 1em;
+	}
+
+	#holeScore #topar {
+		font-size: .7em;
+		font-weight: 300;
+	}
+
+	#holeScore .button {
+		padding: .5em .8em;
+		border: none;
+	}
+
+	#holeScore .par {
+		font-size: 1.2em;
+		font-weight: bold;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 	header
 	{
 		margin-bottom: 2em;
@@ -123,7 +222,7 @@
 		section,
 		article
 		{
-			margin-bottom: 3em;
+			margin-bottom: 1em;
 			text-align: center;
 		}
 		
