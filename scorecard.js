@@ -1,12 +1,12 @@
-var coursePar = $('#holePar select').on('change', function() {
- 					$('#coursePar').text(function(){
-						var par = 0;
-						for(var i = 01; i <= 18; i++){
-							par += parseInt($('#hole' + i).val(), 10);
-						}
-						return par;
-					});
-				});
+$('#holePar select').on('change', function() {
+ 	$('#coursePar').text(function(){
+		var par = 0;
+		for(var i = 01; i <= 18; i++){
+			par += parseInt($('#hole' + i).val(), 10);
+		}
+		return par;
+	});
+});
 
 
 var n = 8;
@@ -27,15 +27,13 @@ $('#beginRound').on('click', function(e){
 	e.preventDefault();
 	var table = '<tr><th>Current Score<br><span id="topar">(to par)</span</th><th>Player</th><th colspan="3">Hole <span id="holenumber">1</span> Score</th></tr>';
 	var rows = $('#playerCountVal').val();
-	var cols = 5;
 	for(var r = 1; r <= rows; r++){
 		if($('#player' + r).val() === ''){
-			// return alert("Please fill in names of all players!");
 			return $('#errors').show();
 		} else {
 			table += '<tr>';
 			table += '<td class="totalScore">0</td>';
-			table += '<td>' + $('#player' + r).val() + '</td>';
+			table += '<td class="playerName">' + $('#player' + r).val() + '</td>';
 			table += '<td class="subtract"><button class="button">-</button></td>';
 			table += '<td class="par" id="player' + r + 'Score"' + '>' + parseInt($('#hole1').val(), 10) + '</td>';
 			table += '<td class="add"><button class="button">+</button></td>';
@@ -47,7 +45,6 @@ $('#beginRound').on('click', function(e){
 	$('.byline').text("Shake hands and let's begin! Enter scores after each hole!");
 	$('#holeScore').html(table);
 	$('#scorecardSetup').css('display', 'none');
-	// $('#holeScorecard').css('display', '');
 });
 
 var hole = 1;
@@ -88,5 +85,4 @@ $(document).on('click', '#nextHole', function(){
 			$('.par').text(parseInt($('#hole' + hole).val(), 10));
 			$('.byline').text("On to the next!! It's a great day to throw some plastic!")
 		}
-	// $('.byline').text("GOOD ROUND! Play another one?");
 });
