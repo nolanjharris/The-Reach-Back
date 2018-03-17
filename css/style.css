@@ -99,6 +99,24 @@
 		padding: 0 5px;
 	}
 
+/*	#coursePage .page {
+			background-color: #f1f1f1;
+		}
+
+		.courseThumbnail {
+			text-align: center;
+		}
+
+		.courseThumbnail img {
+			max-width: 250px;
+			border-radius: 4px;
+		}
+
+		.courseThumbnail h4 {
+			font-weight: bold;
+			letter-spacing: 0px;
+		}
+
 	#scorecardHeader {
 		font-size: 4em;
 	}
@@ -109,7 +127,6 @@
 	}
 
 	#playerCount {
-		/*height: 40vh;*/
 		width: 15vw;
 		border-radius: 5px;
 		color: #202020;
@@ -137,7 +154,6 @@
 
 	#playerNames {
 		display: inline-block;
-		/*height: 40vh;*/
 		width: 50vw;
 		font-size: 2.5em;
 		vertical-align: top;
@@ -160,10 +176,6 @@
 	#holePar select {
 		border-radius: 4px;
 	}
-
-	/*#holeScorecard {
-		display: none;
-	}*/
 
 	#holeScore {
 		margin: 1em auto;
@@ -195,7 +207,7 @@
 		font-weight: bold;
 		padding-left: 0;
 		padding-right: 0;
-	}
+	}*/
 
 	header
 	{
@@ -1075,6 +1087,7 @@
 		background: #FFF;
 		padding: 1.4em;
 		font-size: 0.95em;
+		border-radius: 5px;
 	}
 	
 	blockquote
