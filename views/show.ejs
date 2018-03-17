@@ -1,0 +1,67 @@
+<% include partials/header %>
+
+<body class="showPage">
+	
+<!-- Header -->
+		<div id="header">
+			<div class="container">
+					
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#"><img src="../images/reachback.png"></a></h1>
+					</div>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/scorecard">Scorecard</a></li>
+							<li class="active"><a href="/courses">Courses</a></li>
+							<li><a href="/store">Store</a></li>
+							<li><a href="/videos">Videos</a></li>
+						</ul>
+					</nav>
+
+			</div>
+		</div>
+	<!-- Header -->
+	<!-- Banner -->
+		<div id="banner">
+			<div class="container">
+			</div>
+		</div>
+	<!-- /Banner -->
+
+	<div id="page">
+		<div id="main" class="container">	
+			<div class="row">
+				<header>
+					<h2><%= course.name %> Disc Golf Park</h2>
+				</header>
+				<div class="box">
+					<img class="image left" src="<%= course.image_url %>">
+				</div>
+				<div class="courseInfo">
+					<p class="byline"><span class="center"><%= course.location %></span></p>
+
+					<p>Par Info: <span class="right"><%= course.par %></span></p>
+					
+					<p>Holes: <span class="right"><%= course.holes %></span></p>
+
+					<p>Course Length: <span class="right"><%= course.length %></span></p>
+					
+					<p>Year Established <span class="right"><%= course.yearEst %></span></p>
+
+					<p>Course Description:<span class="justify"><br><%= course.description %></span></p>
+					
+					<p>Local Directions:<br><span class="justify"><%= course.directions %></span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="featured">
+		<div class="divider"></div>
+	</div>
+
+<% include partials/footer %>

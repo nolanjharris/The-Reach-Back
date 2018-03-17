@@ -1,0 +1,62 @@
+<% include partials/header %>
+
+<body class="coursePage">
+	
+<!-- Header -->
+		<div id="header">
+			<div class="container">
+					
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#"><img src="images/reachback.png"></a></h1>
+					</div>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/scorecard">Scorecard</a></li>
+							<li class="active"><a href="/courses">Courses</a></li>
+							<li><a href="/store">Store</a></li>
+							<li><a href="/videos">Videos</a></li>
+						</ul>
+					</nav>
+
+			</div>
+		</div>
+	<!-- Header -->
+	<!-- Banner -->
+		<div id="banner">
+			<div class="container">
+			</div>
+		</div>
+	<!-- /Banner -->
+
+	<!-- Main -->
+	<div id="page">
+		<div id="main" class="container">	
+			<div class="row">
+				<% courses.forEach(function(course){ %>
+				<section class="4u">
+					<div class="box courseThumbnail">
+						
+						<div>
+							<a href="#" class="image"><img src="<%= course.image_url %>"></a>
+							<h4><%= course.name %></h4>
+							<p class="byline"><br><%= course.location %></p>
+							<a href="/courses/<%= course._id %>"><button class="button">More Info</button></a>
+						</div>
+
+					</div>
+				</section>
+				<% }); %>
+			</div>
+		</div>
+	</div>
+	<!-- /Main -->
+
+	<div id="featured">
+		<div class="divider"></div>
+	</div>
+
+<% include partials/footer %>
