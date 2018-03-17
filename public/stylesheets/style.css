@@ -101,8 +101,8 @@
 
 		.coursePage .courseThumbnail {
 			text-align: center;
-			height: 390px;
-			width: 370px;
+			/*height: 390px;*/
+			width: 100%;
 			background-color: #e6e6e6;
 			border: 1px solid #d9d9d9;
 			padding: 12.5px;
@@ -110,9 +110,16 @@
 			margin-bottom: 20px;
 		}
 
+		.col-centered {
+			float: none;
+			margin: 0 auto;
+			text-align: center;
+		}
+
 		.courseThumbnail img {
-			max-width: 350px;
+			max-width: 95%;
 			border-radius: 4px;
+			margin: 0 auto;
 		}
 
 		.courseThumbnail h4 {
@@ -157,17 +164,18 @@
 			color: rgba(0,0,0,0.5);
 		}
 
+		.showPage #page img {
+			width: 100%;
+			margin-bottom: 2em;
+		}
+
 		.right {
 			float: right;
 		}
 
-		.justify {
-			text-align: justify;
-		}
-
 		.courseInfo {
 			display: inline-block;
-			width: 550px;
+			/*width: 550px;*/
 			font-size: 1.2em;
 		}
 
@@ -263,6 +271,15 @@
 		padding-right: 0;
 	}
 
+	img {
+		max-width: 100%;
+		/*min-width: 100%;*/
+	}
+
+	.maxWidth {
+		min-width: 100%;
+	}
+
 	header
 	{
 		margin-bottom: 2em;
@@ -298,7 +315,7 @@
 		section,
 		article
 		{
-			margin-bottom: 1em;
+			margin-bottom: 2em;
 			text-align: center;
 		}
 		
@@ -311,7 +328,7 @@
 		section:last-child,
 		article:last-child
 		{
-			margin-bottom: 0;
+			margin-bottom: 2em;
 		}
 
 		.row > section,
@@ -1033,6 +1050,7 @@
 		padding: 12em 0em;
 		background: url(../images/homepagebanner.jpg) no-repeat center;
 		background-size: cover;
+		background-position: left;
 		color: #fff;
 	}
 
