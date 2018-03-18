@@ -111,7 +111,7 @@
 		}
 
 		.col-centered {
-			float: none;
+			/*float: none;*/
 			margin: 0 auto;
 			text-align: center;
 		}
@@ -139,6 +139,15 @@
 		.courseThumbnail button {
 			margin-top: 0px;
 			border: none;
+		}
+
+		#holePar table {
+			text-align: center;
+		}
+
+		#holePar th, td {
+			padding-right: 5px;
+			text-align: center;
 		}
 
 		.showPage .image {
@@ -178,9 +187,18 @@
 			/*width: 550px;*/
 			font-size: 1.2em;
 		}
+	
+	.scorePage {
+		text-align: center;
+	}
+
+	.scorePage header {
+		display: inline-block;
+	}
 
 	#scorecardHeader {
-		font-size: 4em;
+		font-size: 3.2em;
+		margin: 0 auto !important;
 	}
 
 	#errors {
@@ -189,36 +207,72 @@
 	}
 
 	#playerCount {
-		width: 15vw;
+		/*width: 50%;*/
 		border-radius: 5px;
 		color: #202020;
-		font-size: 2.5em;
+		font-size: 2.2em;
 		line-height: 1.3em;
-		display: inline-block;
+		/*display: inline-block;*/
+	}
+
+	#playerCount h3 {
+		text-align: center;
 	}
 
 	#playerCount select {
 		text-decoration: none;
 		padding: 0 15px;
-		margin-top: 5px;
+		margin: 15px 0;
 		background-color: #202020;
 		border-radius: 5px;
 		color: #fff;
-		font-size: 1em;
+		font-size: .9em;
 		border: none;
 		outline: none;
 		box-shadow: none;
 	}
+
+	.scorePage header {
+		margin: 0 auto !important;
+		padding-left: 50px;
+	}
+
+	.scorePage {
+		padding: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.scorePage .button {
+		padding: .5em 1.5em;
+		margin: 0 auto;
+	}
+
+	#table1 {
+		margin: 0;
+		float: right !important;
+	}
+
+	#table2 {
+		margin: 0;
+		float: left !important;
+	}
+
 	#playerNames h3 {
 		width: 100%;
 		line-height: 1.4em;
 	}
 
-	#playerNames {
+	.col-centered table {
 		display: inline-block;
-		width: 50vw;
-		font-size: 2.5em;
+	}
+
+	#playerNames {
+		/*display: inline-block;*/
+		/*width: 50%;*/
+		font-size: 2.2em;
 		vertical-align: top;
+		padding: 0;
 	}
 
 	#playerNames input {
@@ -229,7 +283,7 @@
 	}
 
 	#holePar {
-		font-size: 1.3em;
+		font-size: 1.5em;
 		font-weight: bold;
 		text-align: center;
 		margin: 20px auto;
@@ -237,6 +291,17 @@
 
 	#holePar select {
 		border-radius: 4px;
+		font-size: 1.1em;
+	}
+
+	#holeScorecard {
+		max-width: 100vw;
+		padding-left: 50px;
+		margin: 0 auto;
+	}
+
+	#holeScorecard th {
+		text-align: center;
 	}
 
 	#holeScore {
@@ -251,7 +316,7 @@
 	}
 
 	#holeScore td {
-		padding: .6em 1.2em;
+		padding: .6em .6em;
 	}
 
 	#holeScore #topar {
@@ -269,6 +334,11 @@
 		font-weight: bold;
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+	#scorecardPage {
+		max-width: 100%;
+		overflow-x: hidden;
 	}
 
 	img {

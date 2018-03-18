@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<body>
+<body id="scorecardPage">
 
 	<div id="header">
 			<div class="container">
@@ -38,15 +38,16 @@
 			<div id="main" class="container">
 				<div class="row">
 				
-					<div class="12u skel-cell-important">
-						<section>
+					<div class="col-centered scorePage">
+						<!-- <section> -->
 							<header>
 								<h2 id="scorecardHeader">Scorecard</h2>
 								<span class="byline">Warm up by entering course par and Player Names!</span>
 							</header>
-							<div id="scorecardSetup">
-								<div class="4u" id="playerCount">
-									<h3>How Many Players?</h3>
+							<div class="container col-centered">
+							<div class="row col-centered" id="scorecardSetup">
+								<div class="col-xs-12 col-md-4 col-centered" id="playerCount">
+									<h3>How<br>Many<br>Players?</h3>
 								 	<select id="playerCountVal">
 								 		<option value="1">1</option>
 								 		<option value="2">2</option>
@@ -58,7 +59,7 @@
 								 		<option value="8" selected="selected">8</option>
 								 	</select>
 								</div>
-								<div class="8u" id="playerNames">
+								<div class="col-xs-12 col-md-8 col-centered" id="playerNames">
 									<h3>Player Names</h3>
 									<input type="text" name="player1" id="player1" placeholder="Player Name">
 									<input type="text" name="player2" id="player2" placeholder="Player Name">
@@ -69,176 +70,343 @@
 									<input type="text" name="player7" id="player7" placeholder="Player Name">
 									<input type="text" name="player8" id="player8" placeholder="Player Name">
 								</div>
-								<div class="9u" id="holePar">
-									<table class="12u" id="table2">
-									<colgroup span="18"></colgroup>
+							<!-- </div> -->
+								<div class="container" id="holePar">
+									<!-- <div class="container"> -->
+									<div class="row">
+									<div class="col-xs-12 col-md-6">
+									<table id="table1">
+									
 									<tr>
-										<th>Hole -</th>
-										<th>1</th>
-										<th>2</th>
-										<th>3</th>
-										<th>4</th>
-										<th>5</th>
-										<th>6</th>
-										<th>7</th>
-										<th>8</th>
-										<th>9</th>
-										<th>10</th>
-										<th>11</th>
-										<th>12</th>
-										<th>13</th>
-										<th>14</th>
-										<th>15</th>
-										<th>16</th>
-										<th>17</th>
-										<th>18</th>
-										<th>CoursePar</th>
+										<table>
+											<tr>
+												<th>Hole</th>
+											</tr>
+											<tr>
+												<th>Par</th>
+											</tr>
+										</table>
 									</tr>
 									<tr>
-										<th>Par -</th>
-										<td>
-											<select id="hole1">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole2">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole3">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole4">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole5">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole6">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole7">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole8">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole9">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole10">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole11">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole12">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole13">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole14">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole15">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole16">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole17">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<td>
-											<select id="hole18">
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</td>
-										<th id="coursePar">54</th>
+										<table>
+											<tr>
+												<th>1</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole1">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
 									</tr>
-
+									<tr>
+										<table>
+											<tr>
+												<th>2</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole2">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>3</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole3">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>4</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole4">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>5</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole5">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>6</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole6">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>7</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole7">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>8</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole8">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>9</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole9">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+							</table>
+							</div>
+							<div class="col-xs-12 col-md-6">
+							<table id="table2">
+									<tr>
+										<table>
+											<tr>
+												<th>10</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole10">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>11</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole11">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>12</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole12">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>13</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole13">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>14</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole14">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>15</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole15">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>16</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole16">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>17</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole17">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>18</th>
+											</tr>
+											<tr>
+												<td>
+													<select id="hole18">
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+													</select>
+												</td>
+											</tr>
+										</table>
+									</tr>
+									<tr>
+										<table>
+											<tr>
+												<th>CoursePar</th>
+											</tr>
+											<tr>
+												<th id="coursePar">54</th>
+											</tr>
+										</table>
+									</tr>
 								</table>
-								</div>
+							</div>
+						</div>
+								
 								<a href="#" class="button" id="beginRound">Begin Round</a>
 								<div id="errors">Please enter names for all players!</div>
+								</div>
 							</div>
+						</div>
 
-							<div class="12u" id="holeScorecard">
+							<div class="col-xs-12" id="holeScorecard">
 								
 								<table id="holeScore">
 									
 								</table>
 
 							</div>
-						</section>
+						<!-- </section> -->
 					</div>
 					
 				</div>
