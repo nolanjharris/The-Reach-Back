@@ -2,6 +2,39 @@
 
 <body class="homepage">
 
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Login or Signup</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+          	<h1>Login</h1>
+			<form action="/login" method="POST">
+				<input type="text" name="username" placeholder="username">
+				<input type="password" name="password" placeholder="password">
+				<button class="button">Login</button>
+			</form>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+          	<h1>Sign up</h1>
+			<form action="/register" method="POST">
+				<input type="text" name="username" placeholder="username">
+				<input type="password" name="password" placeholder="password">
+				<button class="button">Sign Up</button>
+			</form>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 	<!-- Header -->
 	<div class="navbar-wrapper">
 		<div class="navbar nabvar-default navbar-static-top" id="header">
@@ -28,7 +61,7 @@
 							<li><a href="/store">Store</a></li>
 							<li><a href="/videos">Videos</a></li>
 						<% if(!currentUser) { %>
-							<li><a href="/login">Login/Signup</a></li>
+							<li><a data-toggle="modal" data-target=".modal">Login/Signup</a></li>
 						<% } else { %>
 							<li><a href="/logout">Logout</a></li>
 						<% } %>

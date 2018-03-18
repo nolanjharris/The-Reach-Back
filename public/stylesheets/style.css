@@ -1147,6 +1147,48 @@
 			{
 				display: none;
 			}
+
+/*********************************************************************************/
+/* LOGIN SIGNUP MODAL
+/*********************************************************************************/
+
+
+	.modal {
+		font-size: 1.5em;
+		background: #202020 url(../images/img01.jpg) repeat;
+	}
+
+	.modal .button {
+		border: none;
+		text-decoration: none;
+	}
+
+	.modal h1 {
+		text-align: center;
+		font-size: 1.3em;
+		font-weight: bold;
+		color: #202020;
+		margin-bottom: 10px;
+	}
+
+	.modal form {
+		text-align: center;
+	}
+
+	.modal input {
+		border-radius: 6px;
+		border: 1px solid #e6e6e6;
+		font-size: 1.1em;
+		padding: 5px 5px;
+		text-align: center;
+		margin-bottom: 5px;
+	}
+
+	.modal .hidden {
+		display: none;
+	}
+
+
 	
 /*********************************************************************************/
 /* Banner                                                                        */
