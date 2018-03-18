@@ -18,7 +18,7 @@ $('#playerCount select').on('change', function(){
 	}
 	while(playerCountValue > n){
 		n++;
-		$('#player' + n).css('display', 'true');
+		$('#player' + n).css('display', '');
 	}
 });
 
@@ -33,7 +33,7 @@ $('#beginRound').on('click', function(e){
 		} else {
 			table += '<tr>';
 			table += '<td class="totalScore">0</td>';
-			table += '<td class="playerName">' + $('#player' + r).val() + '</td>';
+			table += '<td class="playerName">' + $('#player' + r).val().toUpperCase() + '</td>';
 			table += '<td class="subtract"><button class="button">-</button></td>';
 			table += '<td class="par" id="player' + r + 'Score"' + '>' + parseInt($('#hole1').val(), 10) + '</td>';
 			table += '<td class="add"><button class="button">+</button></td>';

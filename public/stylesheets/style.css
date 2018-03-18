@@ -15,6 +15,7 @@
 	body
 	{
 		background: #202020 url(../images/img01.jpg) repeat;
+		overflow-x: hidden;
 	}
 
 	body,input,textarea,select
@@ -202,16 +203,19 @@
 	}
 
 	#errors {
-		font-size: 1.3em;
+		font-size: 1.1em;
+		padding-top: 10px;
 		display: none;
 	}
 
 	#playerCount {
 		/*width: 50%;*/
+		margin-top: 30px;
+		padding-left: 120px;
 		border-radius: 5px;
 		color: #202020;
-		font-size: 2.2em;
-		line-height: 1.3em;
+		font-size: 2em;
+		line-height: 1.2em;
 		/*display: inline-block;*/
 	}
 
@@ -241,6 +245,7 @@
 		padding: 0;
 		margin-left: auto;
 		margin-right: auto;
+		width: 100%;
 	}
 
 	.scorePage .button {
@@ -250,17 +255,17 @@
 
 	#table1 {
 		margin: 0;
-		float: right !important;
+		/*float: right !important;*/
 	}
 
 	#table2 {
 		margin: 0;
-		float: left !important;
+		/*float: left !important;*/
 	}
 
 	#playerNames h3 {
 		width: 100%;
-		line-height: 1.4em;
+		line-height: 1em;
 	}
 
 	.col-centered table {
@@ -270,16 +275,20 @@
 	#playerNames {
 		/*display: inline-block;*/
 		/*width: 50%;*/
-		font-size: 2.2em;
+		font-size: 2em;
 		vertical-align: top;
-		padding: 0;
+		/*padding: 0;*/
+		margin-top: 20px;
+		/*margin: 0 auto;*/
+		padding-left: 0;
+		padding-right: 40px;
 	}
 
 	#playerNames input {
 		padding: 5px 4px;
 		text-align: center;
 		border: 1px solid #202020;
-		margin: 10px 0;
+		margin: 5px 0;
 	}
 
 	#holePar {
@@ -329,6 +338,11 @@
 		border: none;
 	}
 
+	#beginRound {
+		text-decoration: none;
+		color: #fff;
+	}
+
 	#holeScore .par {
 		font-size: 1.2em;
 		font-weight: bold;
@@ -364,7 +378,7 @@
 		header .byline
 		{
 			display: block;
-			margin: 0.5em 0 0 0;
+			margin: 0.5em 0 -30px 0;
 			padding: 0 0 0.5em 0;
 			text-transform: uppercase;
 			font-size: 1.4em;
@@ -1026,12 +1040,18 @@
 	{
 		position: relative;
 		background: #FFF;
+		margin-bottom: 0;
+	}
+
+	#header .byline {
+		margin-bottom: -10px !important;
 	}
 
 		#header .container
 		{
 			position: relative;
-			padding: 4em 0em;
+			height: 50px;
+			padding: 12em 0em 0em 0em;
 		}
 
 /*********************************************************************************/
@@ -1041,7 +1061,7 @@
 	#logo
 	{
 		position: absolute;
-		left: 0em;
+		left: 2em;
 		top: 1em;
 	}
 	
@@ -1069,9 +1089,16 @@
 
 	#nav
 	{
-		position: absolute;
-		right: 0em;
-		top: 2.2em;
+		/*position: absolute;*/
+		/*right: 0em;*/
+		/*top: 2.2em;*/
+		height: 120px !important;
+		padding: 35px 0px 0 20px;
+		overflow-x: hidden;
+	}
+
+	.navbar {
+		height: 120px;
 	}
 
 		#nav > ul > li
@@ -1098,6 +1125,17 @@
 				color: #333;
 			}
 
+			@media screen and (min-width: 767px) and (max-width: 1000px){
+				#nav >ul >li >a,
+				#nav >ul >li >span 
+				{
+					padding: 0.8em .5em;
+					font-size: 1em;
+					margin-left: 0;
+				}
+			}
+
+
 			#nav li.active a
 			{
 				background: #e95d3c;
@@ -1122,6 +1160,7 @@
 		background-size: cover;
 		background-position: left;
 		color: #fff;
+		/*margin-top: -20px;*/
 	}
 
 /*********************************************************************************/
@@ -1208,6 +1247,12 @@
 	#marketing header h2
 	{
 		font-size: 1.6em;
+		margin-bottom: -20px;
+		margin-top: 30px;
+	}
+
+	#marketing p {
+		margin-bottom: 0 !important;
 	}
 	
 /*********************************************************************************/

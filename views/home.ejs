@@ -3,27 +3,41 @@
 <body class="homepage">
 
 	<!-- Header -->
-		<div id="header">
-			<div class="container">
+	<div class="navbar-wrapper">
+		<div class="navbar nabvar-default navbar-static-top" id="header">
+			<div class="container-fluid">
+
+				
 					
 				<!-- Logo -->
-					<div id="logo">
-						<h1><a href="#"><img src="images/reachback.png" alt=""></a></h1>
-					</div>
+				<div class="navbar-header">
+					<a class="navbar-brand hidden-xs" href="/"><img src="images/reachback.png" alt=""></a>
+					<a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/"><img src="images/reachbacksmall.png" alt=""></a>
+					
+					<button type="button" class="btn btn-lg navbar-toggle collapsed" data-toggle="collapse" data-target=".navHeaderCollapse" id="toggleNav">
+					<span class="glyphicon glyphicon-menu-hamburger"></span>
+					</button>
+				</div>
 				
 				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li class="active"><a href="home">Home</a></li>
+					<div class="collapse navbar-collapse navHeaderCollapse" id="nav">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="/">Home</a></li>
 							<li><a href="/scorecard">Scorecard</a></li>
 							<li><a href="/courses">Courses</a></li>
 							<li><a href="/store">Store</a></li>
 							<li><a href="/videos">Videos</a></li>
+						<% if(!currentUser) { %>
+							<li><a href="/login">Login/Signup</a></li>
+						<% } else { %>
+							<li><a href="/logout">Logout</a></li>
+						<% } %>
 						</ul>
-					</nav>
+					</div>
 
 			</div>
 		</div>
+	</div>
 	<!-- Header -->
 	<!-- Banner -->
 		<div id="banner">
@@ -109,7 +123,7 @@
 							<header>
 								<h2>This Week's Pro Tip</h2>
 							</header>
-							<p class="subtitle">This week we have brought you Sidearm tips by Nate Sexton. Click below to check it out.</p>
+							<p class="subtitle">This week we have brought you Sidearm form and grip tips by Sidearm Guru, Nate Sexton. Click below to check it out.</p>
 							<div class="embed-responsive embed-responsive-16by9">
 							<p><iframe width="350" height="200" src="https://www.youtube.com/embed/SQ6Wutvn4Mg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 							</div>
@@ -140,7 +154,7 @@
 							<a href="#" class="image left"><img src="images/royg.png" alt=""></a>
 							<h3>Featured Course</h3>
 							<p><strong>Roy G. Guererro Park:</strong></p>
-							<p>Very technical and wooded championship level course.</p>
+							<p>Very technical championship level course.</p>
 						</div>
 					</section>
 					<section class="hidden-sm hidden-xs col-md-4">
