@@ -34,7 +34,7 @@ app.use(function(req, res, next){
 	next();
 });
 
-app.get('/', function(req, res){
+app.get('/', function(req, res, next){
 	res.render('home');
 });
 
@@ -42,21 +42,32 @@ app.get('/scorecard', function(req, res){
 	res.render('scorecard');
 });
 
-app.get('/courses', function(req, res){
-	Course.find({}, function(err, allCourses){
-		if(err){
-			console.log(err);
-		} else {
-			res.render("courses", {courses:allCourses});
-		}
-	});
+app.get('/courses/:page', function(req, res){
+	var perPage = 8;
+	var page = req.params.page || 1;
+
+	Course
+		.find({})
+		.skip((perPage * page) - perPage)
+		.limit(perPage)
+		.exec(function(err, courses){
+			Course.count().exec(function(err, count){
+				if (err) return next(err)
+				res.render('courses', {
+					courses: courses,
+					current: page,
+					pages: Math.ceil(count/perPage)
+				});
+			});
+		});
 });
 
 //Show courses route
-app.get("/courses/:id", function(req, res){
+app.get("/courses/:page/:id", function(req, res){
+	var page = req.params.page || 1;
 	Course.findById(req.params.id).exec(function(err, foundCourse){
 		if(err || !foundCourse){
-			req.flash("error", "Course not found");
+			// req.flash("error", "Course not found");
 			res.redirect("back");
 		} else {
 			res.render("show", {course: foundCourse});

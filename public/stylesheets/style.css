@@ -16,6 +16,8 @@
 	{
 		background: #202020 url(../images/img01.jpg) repeat;
 		overflow-x: hidden;
+		padding-right: 0 !important;
+
 	}
 
 	body,input,textarea,select
@@ -1109,6 +1111,7 @@
 			#nav > ul > li:last-child
 			{
 				padding-right: 0;
+				font-weight: bold;
 			}
 
 			#nav > ul > li > a,
@@ -1156,6 +1159,7 @@
 	.modal {
 		font-size: 1.5em;
 		background: #202020 url(../images/img01.jpg) repeat;
+		padding-right: 0 !important;
 	}
 
 	.modal .button {
@@ -1178,14 +1182,46 @@
 	.modal input {
 		border-radius: 6px;
 		border: 1px solid #e6e6e6;
-		font-size: 1.1em;
-		padding: 5px 5px;
+		font-size: 1em;
+		padding: 4px 4px;
 		text-align: center;
 		margin-bottom: 5px;
+		max-width: 100%;
 	}
 
 	.modal .hidden {
 		display: none;
+	}
+
+	#registerNow {
+		border-left: 1px solid #e6e6e6;
+		font-size: .6em;
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	#registerNow button {
+		font-size: 1.3em;
+		border-radius: 8px;
+		border: none;
+		padding: 10px 20px;
+		background-color: #666666;
+		color: #fff;
+		/*font-weight: bold;*/
+		margin-top: 5px;
+		/*position: relative;*/
+	}
+
+	#registerNow p {
+		margin-bottom: 0;
+	}
+
+	#registerNow h1 {
+		margin-bottom: .5em;
+	}
+
+	.modal-body {
+		background-color: #f2f2f2;
 	}
 
 
