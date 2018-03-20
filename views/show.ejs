@@ -126,6 +126,14 @@
 					<p>Local Directions:<br><span class="justify"><%= course.directions %></span></p>
 				</div>
 			</div>
+			<div class="row">
+				<form action="courses/<%=course._id%> class="form-group" method="POST">
+					<label for="comment">Add Comment!</label>
+					<textarea rows="3" id="comment"></textarea>
+					<button type="submit" class="button">Submit</button>
+				</form>
+
+			</div>
 		</div>
 	</div>
 

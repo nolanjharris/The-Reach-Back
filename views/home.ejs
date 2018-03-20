@@ -86,10 +86,11 @@
 							<li><a href="#" data-toggle="modal" data-target="#loginModal">Login/Signup</a></li>
 						<% } else { %>
 							<li><a href="/logout">Logout</a></li>
-							<span id="currentUser">Signed in as <%= currentUser.username %></span>
 						<% } %>
 						</ul>
-
+						<% if(currentUser) { %>
+							<span id="currentUser">Signed in as <%= currentUser.username %></span>
+						<% } %>
 					</div>
 
 			</div>

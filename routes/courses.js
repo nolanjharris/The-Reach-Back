@@ -1,27 +1,38 @@
 var express = require("express");
 var router = express.Router();
 var Course = require('../models/course');
-// var middleware = require('../middleware');
+var Comment = require('../models/comment');
 
-//Index route/ show all courses
-router.get('/', function(req, res){
-	Course.find({}, function(err, allCourses){
-		if(err){
-			console.log(err);
-		} else {
-			res.render("courses/index", {courses:allCourses});
-		}
-	});
+router.get('/courses/:page', function(req, res){
+	var perPage = 8;
+	var page = req.params.page || 1;
+
+	Course
+		.find({})
+		.skip((perPage * page) - perPage)
+		.limit(perPage)
+		.exec(function(err, courses){
+			Course.count().exec(function(err, count){
+				if (err) return next(err)
+				res.render('courses', {
+					courses: courses,
+					current: page,
+					pages: Math.ceil(count/perPage)
+				});
+			});
+		});
 });
 
-//Show route
-router.get("/:id", function(req, res){
+
+//Show courses route
+router.get("/course/:id", function(req, res){
+	// var page = req.params.page || 1;
 	Course.findById(req.params.id).exec(function(err, foundCourse){
 		if(err || !foundCourse){
-			req.flash("error", "Course not found");
+			// req.flash("error", "Course not found");
 			res.redirect("back");
 		} else {
-			res.render("courses/show", {course: foundCourse});
+			res.render("show", {course: foundCourse});
 		}
 	});	
 });
