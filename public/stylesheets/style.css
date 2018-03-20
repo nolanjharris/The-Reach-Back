@@ -275,13 +275,9 @@
 	}
 
 	#playerNames {
-		/*display: inline-block;*/
-		/*width: 50%;*/
 		font-size: 2em;
 		vertical-align: top;
-		/*padding: 0;*/
 		margin-top: 20px;
-		/*margin: 0 auto;*/
 		padding-left: 0;
 		padding-right: 40px;
 	}
@@ -357,6 +353,28 @@
 		overflow-x: hidden;
 	}
 
+	#video {
+		margin-bottom: 20px;
+	}
+
+	#pagination {
+		/*margin: 0 auto;*/
+	}
+
+	#pagination>li>a, #pagination>li>span {
+	    color: #666666;
+	}
+
+	#pagination>.active>a {
+    	color: #fff;
+    	background-color: #e95d3c;
+    	border: 1px solid #e95d3c;
+	}
+
+	#pagination>.active>a:hover {
+		background-color: #de3d27;
+	}
+
 	img {
 		max-width: 100%;
 		/*min-width: 100%;*/
@@ -364,6 +382,38 @@
 
 	.maxWidth {
 		min-width: 100%;
+	}
+
+	#videoHeader > * {
+		float: none;
+		font-size: 2.4em;
+	}
+
+	#videoLinks {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	#videoLinks > div {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	#videoLinks > div > a > button {
+		padding: 5px 10px;
+		font-size: 1em;
+		border: none;
+		text-decoration: none;
+	}
+
+	#videoPage #main {
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	.coursePage #main {
+		margin-top: 0;
+		padding-top: 0;
 	}
 
 	header

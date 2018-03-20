@@ -7,6 +7,7 @@ var express       = require("express"),
 	User          = require("./models/user");
 
 var Course = require('./models/course');
+var Video = require('./models/videos');
 
 
 
@@ -42,6 +43,27 @@ app.get('/scorecard', function(req, res){
 	res.render('scorecard');
 });
 
+app.get('/videos/:page', function(req, res){
+	var perPage = 6;
+	var page = req.params.page || 1;
+	var videoList = req.query.t ? {type:req.query.t} : {};
+	Video.find(videoList)
+		.skip(perPage * (page-1))
+		.limit(perPage)
+		.exec(function(err, videos){
+			Video.count(videoList).exec(function(err, count){
+				if (err) return next(err)
+				res.render('videos', {
+					videos: videos,
+					current: page,
+					videoType: req.query.t,
+					pages: Math.ceil(count/perPage)
+				});
+			});
+		});
+});
+
+
 app.get('/courses/:page', function(req, res){
 	var perPage = 8;
 	var page = req.params.page || 1;
@@ -62,9 +84,10 @@ app.get('/courses/:page', function(req, res){
 		});
 });
 
+
 //Show courses route
-app.get("/courses/:page/:id", function(req, res){
-	var page = req.params.page || 1;
+app.get("/course/:id", function(req, res){
+	// var page = req.params.page || 1;
 	Course.findById(req.params.id).exec(function(err, foundCourse){
 		if(err || !foundCourse){
 			// req.flash("error", "Course not found");

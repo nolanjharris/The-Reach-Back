@@ -1,7 +1,7 @@
 <% include partials/header %>
 
-<body class="coursePage">
-	
+<body id="videoPage">
+
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -55,9 +55,9 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<!-- 
 
-
-<!-- Header -->
+	<!-- Header -->
 	<div class="navbar-wrapper">
 		<div class="navbar nabvar-default navbar-static-top" id="header">
 			<div class="container-fluid">
@@ -79,9 +79,9 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="/">Home</a></li>
 							<li><a href="/scorecard">Scorecard</a></li>
-							<li class="active"><a href="/courses/1">Courses</a></li>
+							<li><a href="/courses/1">Courses</a></li>
 							<li><a href="/store">Store</a></li>
-							<li><a href="/videos/1">Videos</a></li>
+							<li class="active"><a href="/videos/1">Videos</a></li>
 						<% if(!currentUser) { %>
 							<li><a href="#" data-toggle="modal" data-target="#loginModal">Login/Signup</a></li>
 						<% } else { %>
@@ -101,61 +101,83 @@
 		</div>
 	<!-- /Banner -->
 
-	<!-- Main -->
 	<div id="page">
 		<div id="main" class="container text-center">
 			<div class="row text-center" id="videoHeader">
-					<h1>All Courses</h1>
-			</div>		
+				<% if(videoType == "tips"){ %>
+					<h1>Pro Tip Videos</h1>
+				<% } else if (videoType == "bag") { %>
+					<h1>'In The Bag' Videos</h1>
+				<% } else if (videoType == "round") { %>
+					<h1>Pro Tournament Videos</h1>
+				<% } else { %>
+					<h1>All Videos</h1>
+				<% } %>
+			</div>	
+			<div class="row text-center" id="videoLinks">
+				<div class="col-xs-6 col-sm-3 col-md-2 col-md-offset-2 text-center" >
+					<a href="/videos/1" ><button type="button" class="button">All Videos</button></a>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+					<a href="/videos/1?t=round"><button type="button" class="button">Rounds</button></a>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-2 text-center mx-auto">
+					<a href="/videos/1?t=bag"><button type="button" class="button">'In The Bag'</button></a>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-2 text-center">
+					<a href="/videos/1?t=tips"><button type="button" class="button">Pro Tips</button></a>
+				</div>
+			</div>
 			<div class="row">
-				<% courses.forEach(function(course){ %>
-				<section class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="box courseThumbnail">
+				<% videos.forEach(function(video){ %>
+				<section class="col-xs-12 col-sm-6" id="video">
+					<div class="box">
 						
 						<div>
-							<a href="/course/<%= course._id %>" class="image"><img src="<%= course.image_url %>"></a>
-							<h4><%= course.name %></h4>
-							<p class="byline"><br><%= course.location %></p>
-							<a href="/course/<%= course._id %>"><button class="button">More Info</button></a>
+
+							<div class="embed-responsive embed-responsive-16by9">
+								<%- video.iframe %>
+							</div>
+							<h4><%= video.name %></h4>
+							
 						</div>
 
 					</div>
 				</section>
 				<% }); %>
 			</div>
-			 <% if (pages > 0) { %>
-                <ul class="pagination text-center mx-auto" id="pagination">
+			<% if (pages > 0) { %>
+                <ul class="pagination pagination-centered text-center mx-auto" id="pagination">
                     <% if (current == 1) { %>
                         <li class="disabled"><a>First</a></li>
                     <% } else { %>
-                        <li><a href="/courses/1">First</a></li>
+                        <li><a href="/videos/1">First</a></li>
                     <% } %>
-                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
                     <% if (i !== 1) { %>
                         <li class="disabled"><a>...</a></li>
                     <% } %>
-                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% for (; i <= (Number(current) + 2) && i <= pages; i++) { %>
                         <% if (i == current) { %>
                             <li class="active"><a><%= i %></a></li>
                         <% } else { %>
-                            <li><a href="/courses/<%= i %>"><%= i %></a></li>
+                            <li><a href="/videos/<%= i %>?t=<%=videoType%>""><%= i %></a></li>
                         <% } %>
-                        <% if (i == Number(current) + 4 && i < pages) { %>
+                        <% if (i == Number(current) + 2 && i < pages) { %>
                             <li class="disabled"><a>...</a></li>
                         <% } %>
                     <% } %>
                     <% if (current == pages) { %>
                         <li class="disabled"><a>Last</a></li>
                     <% } else { %>
-                        <li><a href="/courses/<%= pages %>">Last</a></li>
+                        <li><a href="/videos/<%= pages %>">Last</a></li>
                     <% } %>
                 </ul>
             <% } %>
 		</div>
 	</div>
-	<!-- /Main -->
 
-	<div id="featured">
+<div id="featured">
 		<div class="divider"></div>
 	</div>
 

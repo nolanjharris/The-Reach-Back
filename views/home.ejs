@@ -81,13 +81,15 @@
 							<li><a href="/scorecard">Scorecard</a></li>
 							<li><a href="/courses/1">Courses</a></li>
 							<li><a href="/store">Store</a></li>
-							<li><a href="/videos">Videos</a></li>
+							<li><a href="/videos/1">Videos</a></li>
 						<% if(!currentUser) { %>
 							<li><a href="#" data-toggle="modal" data-target="#loginModal">Login/Signup</a></li>
 						<% } else { %>
 							<li><a href="/logout">Logout</a></li>
+							<span id="currentUser">Signed in as <%= currentUser.username %></span>
 						<% } %>
 						</ul>
+
 					</div>
 
 			</div>
@@ -116,7 +118,7 @@
 							<div class="embed-responsive embed-responsive-16by9">
 							<iframe width="800" height="450" src="https://www.youtube.com/embed/NyIBBjX7Za0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 							</div>
-							<a href="#" class="button">More Videos</a>
+							<a href="/videos/1" class="button">More Videos</a>
 						</section>
 					</div>
 					<div class="hidden-md hidden-sm hidden-xs col-lg-3">
@@ -182,7 +184,7 @@
 							<div class="embed-responsive embed-responsive-16by9">
 							<p><iframe width="350" height="200" src="https://www.youtube.com/embed/SQ6Wutvn4Mg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></p>
 							</div>
-							<a href="#" class="button">More Pro Tips</a>
+							<a href="/videos/1?t=tips" class="button">More Pro Tips</a>
 						</section>
 					</div>
 				</div>
