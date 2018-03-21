@@ -307,5 +307,16 @@
 
 	#playerNames {
 		padding: 0;
-		margin-left: 20px;
+		margin-left: 25px;
 	}
+
+	#comment {
+		width: 85vw;
+	}
+
+	@media screen and (max-width: 400px){
+		#comment {
+		width: 82vw;
+	}
+	}
+	

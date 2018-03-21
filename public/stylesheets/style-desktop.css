@@ -26,7 +26,7 @@
 		padding: 6em 0em;
 	}
 
-	.homepage #banner
+	#homepage #banner
 	{
 		padding: 12em 0em;
 	}
@@ -40,7 +40,7 @@
 		padding: 2em 0em 6em 0em;
 	}
 	
-	.homepage #page
+	#homepage #page
 	{
 		padding: 3em 0em;
 	}
@@ -52,7 +52,7 @@
 		border-top: none;
 	}
 	
-	.homepage #main
+	#homepage #main
 	{
 		margin-top: 0;
 		padding-top: 0;

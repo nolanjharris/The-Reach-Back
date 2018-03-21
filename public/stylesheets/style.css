@@ -102,14 +102,14 @@
 		padding: 0 5px;
 	}
 
-		.coursePage .courseThumbnail {
+		#coursePage .courseThumbnail {
 			text-align: center;
 			/*height: 390px;*/
 			width: 100%;
-			background-color: #e6e6e6;
-			border: 1px solid #d9d9d9;
-			padding: 12.5px;
-			border-radius: 6px;
+			background-color: #f2f2f2;
+			border: 1px solid #e6e6e6;
+			padding-bottom: 12.5px;
+			border-radius: 6px; 
 			margin-bottom: 20px;
 		}
 
@@ -120,8 +120,8 @@
 		}
 
 		.courseThumbnail img {
-			max-width: 95%;
-			border-radius: 4px;
+			max-width: 100%;
+			border-radius: 6px 6px 0px 0px; 
 			margin: 0 auto;
 		}
 
@@ -153,32 +153,39 @@
 			text-align: center;
 		}
 
-		.showPage .image {
+		#showPage .image {
 			width: 600px;
 			display: inline-block;
 			border-radius: 10px;
 		}
 
-		.showPage header {
+		#showPage header {
 			display: block;
 			width: 100%;
 			text-align: center;
 			font-weight: bold;
 		}
 
-		.showPage #main {
+		#showPage #main {
 			margin-top: 20px;
 		}
 
-		.showPage .byline {
+		#showPage .byline {
 			text-align: center;
 			font-weight: bold;
 			color: rgba(0,0,0,0.5);
 		}
 
-		.showPage #page img {
+		#showPage #page img {
 			width: 100%;
 			margin-bottom: 2em;
+		}
+
+		@media screen and (min-width: 991px) and (max-width: 1200px){
+			.courseInfo > *{
+				font-size: .8em !important;
+				margin-bottom: 7px;
+			}
 		}
 
 		.right {
@@ -191,11 +198,11 @@
 			font-size: 1.2em;
 		}
 	
-	.scorePage {
+	#scorePage {
 		text-align: center;
 	}
 
-	.scorePage header {
+	#scorePage header {
 		display: inline-block;
 	}
 
@@ -238,19 +245,19 @@
 		box-shadow: none;
 	}
 
-	.scorePage header {
+	#scorePage header {
 		margin: 0 auto !important;
 		padding-left: 50px;
 	}
 
-	.scorePage {
+	#scorePage {
 		padding: 0;
 		margin-left: auto;
 		margin-right: auto;
 		width: 100%;
 	}
 
-	.scorePage .button {
+	#scorePage .button {
 		padding: .5em 1.5em;
 		margin: 0 auto;
 	}
@@ -294,6 +301,7 @@
 		font-weight: bold;
 		text-align: center;
 		margin: 20px auto;
+		padding-left: 50px;
 	}
 
 	#holePar select {
@@ -303,7 +311,7 @@
 
 	#holeScorecard {
 		max-width: 100vw;
-		padding-left: 50px;
+		padding-left: 60px;
 		margin: 0 auto;
 	}
 
@@ -387,6 +395,7 @@
 	#videoHeader > * {
 		float: none;
 		font-size: 2.4em;
+		margin-top: 15px;
 	}
 
 	#videoLinks {
@@ -411,7 +420,7 @@
 		padding-top: 0;
 	}
 
-	.coursePage #main {
+	#coursePage #main {
 		margin-top: 0;
 		padding-top: 0;
 	}
@@ -422,7 +431,8 @@
 		right: 20px;
 	}
 
-	textarea {
+	#comment {
+		padding-top: 5px;
 		width: 87vw;
 		resize: none;
 		border-radius: 10px;

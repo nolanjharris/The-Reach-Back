@@ -8,10 +8,10 @@ $('#holePar select').on('change', function() {
 	});
 });
 
-
+var playerCountValue;
 var n = 8;
 $('#playerCount select').on('change', function(){
-	var playerCountValue = $('#playerCountVal').val();
+	playerCountValue = $('#playerCountVal').val();
 	while(playerCountValue < n){
 		$('#player' + n).css('display', 'none');
 		n--;
@@ -21,7 +21,6 @@ $('#playerCount select').on('change', function(){
 		$('#player' + n).css('display', '');
 	}
 });
-
 
 $('#beginRound').on('click', function(e){
 	e.preventDefault();
@@ -73,7 +72,11 @@ $(document).on('click', '#nextHole', function(){
 			$('#holenumber').text(hole);
 			$('.par').text(parseInt($('#hole' + hole).val(), 10));
 			$('.byline').text("Shake hands!! GOOD ROUND EVERYONE!!")
+			$('#nextHole').text("Finish!");
 		} else if (hole === 19){
+			var winningScore = 100;
+			
+			console.log($());
 			hole = 1;
 			$('#nextHole').css('display', 'none');
 			$('#scorecardSetup').css('display', '');

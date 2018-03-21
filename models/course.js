@@ -8,7 +8,13 @@ var courseSchema = new mongoose.Schema({
 	holes: String,
 	yearEst: String,
 	length: String,
-	directions: String
+	directions: String,
+	comments: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Comment"
+		}
+	]
 });
 
 module.exports = mongoose.model("Course", courseSchema);

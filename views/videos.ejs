@@ -1,106 +1,4 @@
 <% include partials/header %>
-
-<body id="videoPage">
-
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xs-12 mx-auto col-sm-6">
-          	<h1>Login</h1>
-			<form action="/login" method="POST" id="loginForm">
-				<input type="text" name="username" placeholder="username">
-				<input type="password" name="password" placeholder="password">
-				<button class="button">Login</button>
-			</form>
-          </div>
-          <div class="col-xs-12 mx-auto col-sm-6" id="registerNow">
-          	<h1>Not a member?</h1>
-          	<p>Accounts are completely free and easy to create! Join now to start tracking your progress and compare your averages to your friends!</p>
-          	<button type="button" data-dismiss="modal" data-toggle="modal" data-target="#registerModal">Create FREE Account</button>
-          </div>
-
-        </div>
-        
-      </div>
-      
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-xs-12 mx-auto">
-          	<h1>Sign Up</h1>
-			<form action="/register" method="POST">
-				<input type="text" name="username" placeholder="username">
-				<input type="password" name="password" placeholder="password">
-				<button class="button" >Join Now!</button>
-			</form>
-          </div>
-        </div>
-        
-      </div>
-      
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- 
-
-	<!-- Header -->
-	<div class="navbar-wrapper">
-		<div class="navbar nabvar-default navbar-static-top" id="header">
-			<div class="container-fluid">
-
-				
-					
-				<!-- Logo -->
-				<div class="navbar-header">
-					<a class="navbar-brand hidden-xs" href="/"><img src="/images/reachback.png" alt=""></a>
-					<a class="navbar-brand hidden-sm hidden-md hidden-lg" href="/"><img src="/images/reachbacksmall.png" alt=""></a>
-					
-					<button type="button" class="btn btn-lg navbar-toggle collapsed" data-toggle="collapse" data-target=".navHeaderCollapse" id="toggleNav">
-					<span class="glyphicon glyphicon-menu-hamburger"></span>
-					</button>
-				</div>
-				
-				<!-- Nav -->
-					<div class="collapse navbar-collapse navHeaderCollapse" id="nav">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="/">Home</a></li>
-							<li><a href="/scorecard">Scorecard</a></li>
-							<li><a href="/courses/1">Courses</a></li>
-							<li><a href="/store">Store</a></li>
-							<li class="active"><a href="/videos/1">Videos</a></li>
-						<% if(!currentUser) { %>
-							<li><a href="#" data-toggle="modal" data-target="#loginModal">Login/Signup</a></li>
-						<% } else { %>
-							<li><a href="/logout">Logout</a></li>
-						<% } %>
-						</ul>
-					</div>
-
-			</div>
-		</div>
-	</div>
-	<!-- Header -->
-	<!-- Banner -->
-		<div id="banner">
-			<div class="container">
-			</div>
-		</div>
-	<!-- /Banner -->
-
 	<div id="page">
 		<div id="main" class="container text-center">
 			<div class="row text-center" id="videoHeader">
@@ -115,17 +13,19 @@
 				<% } %>
 			</div>	
 			<div class="row text-center" id="videoLinks">
+				<div class="container">
 				<div class="col-xs-6 col-sm-3 col-md-2 col-md-offset-2 text-center" >
 					<a href="/videos/1" ><button type="button" class="button">All Videos</button></a>
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-2 text-center">
-					<a href="/videos/1?t=round"><button type="button" class="button">Rounds</button></a>
+					<a href="/videos/1?t=round"><button type="button" class="button">Pro Rounds</button></a>
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-2 text-center mx-auto">
 					<a href="/videos/1?t=bag"><button type="button" class="button">'In The Bag'</button></a>
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-2 text-center">
 					<a href="/videos/1?t=tips"><button type="button" class="button">Pro Tips</button></a>
+				</div>
 				</div>
 			</div>
 			<div class="row">

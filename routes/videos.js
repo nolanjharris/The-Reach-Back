@@ -4,7 +4,7 @@ var Video = require('../models/videos');
 
 
 router.get('/videos/:page', function(req, res){
-	var perPage = 6;
+	var perPage = 4;
 	var page = req.params.page || 1;
 	var videoList = req.query.t ? {type:req.query.t} : {};
 	Video.find(videoList)
