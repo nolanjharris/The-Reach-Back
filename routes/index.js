@@ -12,11 +12,6 @@ router.get('/', function(req, res, next){
 	res.render('home');
 });
 
-// scorecard route
-router.get('/scorecard', function(req, res, next){
-	res.render('scorecard');
-});
-
 //handle sign up logic
 router.post("/register", function(req, res){
 	var newUser = new User({username: req.body.username});

@@ -3,16 +3,19 @@ var express       = require("express"),
 	bodyParser    = require("body-parser"),
 	mongoose      = require("mongoose"),
 	passport      = require("passport"),
-	LocalStrategy = require("passport-local"),
-	User          = require("./models/user");
+	LocalStrategy = require("passport-local");
 
+var	User = require("./models/user");
 var Course = require('./models/course');
 var Video = require('./models/videos');
 var Comment = require('./models/comment');
+var Score = require('./models/score');
 
 var courseRoutes = require("./routes/courses");
 var indexRoutes = require("./routes/index");
 var videoRoutes = require("./routes/videos");
+var statsRoutes = require("./routes/stats");
+var scorecardRoutes = require("./routes/scores");
 
 // Connect to mongoose
 mongoose.connect("mongodb://localhost/reachback");
@@ -41,6 +44,8 @@ app.use(function(req, res, next){
 app.use(indexRoutes);
 app.use(courseRoutes);
 app.use(videoRoutes);
+app.use(statsRoutes);
+app.use(scorecardRoutes);
 
 app.listen(3000);
 console.log('Running on port 3000...');

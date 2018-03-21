@@ -1,11 +1,11 @@
 var mongoose = require("mongoose");
 
-var scoreSchema = mongoose.Schema({
-    score: String,
+var scoreSchema = new mongoose.Schema({
+    toPar: String,
     date: String,
     course: String,
-    user: {
-        id:{
+    player: {
+        id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
@@ -13,4 +13,4 @@ var scoreSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("Comment", commentSchema);
+module.exports = mongoose.model("Score", scoreSchema);
