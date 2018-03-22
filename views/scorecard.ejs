@@ -1,5 +1,6 @@
 <% include partials/header %>
 
+
 	<!-- Main -->
 		<div id="page">
 				
@@ -9,10 +10,24 @@
 				
 					<div class="col-centered" id="scorePage">
 						<!-- <section> -->
+							<div id="test"></div>
+
 							<header>
 								<h2 id="scorecardHeader">Scorecard</h2>
-								<span class="byline">Warm up by entering course par and Player Names!</span>
+								<span class="byline">Warm up by selecting course and entering Player Names!</span>
 							</header>
+							<div class="row text-center" id="courses">
+								<div class="col-xs-12">
+									<select id="courseSelect">
+										<option hidden="hidden" selected="selected">Choose The Course</option>
+										<option id="customCourse">Custom Course</option>
+										<% courses.forEach(function(course){%>
+											<option id="<%=course._id%>"><%= course.name %></option>
+										<%});%>
+										
+									</select>
+								</div>
+							</div>
 							<div class="container col-centered">
 							<div class="row col-centered" id="scorecardSetup">
 								<div class="col-xs-12 col-sm-4 col-centered" id="playerCount">
@@ -30,9 +45,11 @@
 								</div>
 								<div class="col-xs-12 col-sm-8 col-centered" id="playerNames">
 									<h3>Player Names</h3>
-									
-									
-									<input type="text" name="player1" id="player1" placeholder="Player Name">
+									<% if(currentUser) {%>
+										<input type="text" name="player1" id="player1" value="<%=currentUser.username%>">
+									<%} else {%>
+										<input type="text" name="player1" id="player1" placeholder="Player Name">
+									<%}%>
 									<input type="text" name="player2" id="player2" placeholder="Player Name">
 									<input type="text" name="player3" id="player3" placeholder="Player Name">
 									<input type="text" name="player4" id="player4" placeholder="Player Name">
@@ -40,12 +57,13 @@
 									<input type="text" name="player6" id="player6" placeholder="Player Name">
 									<input type="text" name="player7" id="player7" placeholder="Player Name">
 									<input type="text" name="player8" id="player8" placeholder="Player Name">
+
 								</div>
 							<!-- </div> -->
-								<div class="container" id="holePar">
+								<div class="container" id="parList">
 									<!-- <div class="container"> -->
 									<div class="row">
-									<div class="col-xs-12">
+									<div class="col-xs-12" id="holePar">
 									<table id="table1">
 									
 									<tr>
@@ -58,298 +76,29 @@
 											</tr>
 										</table>
 									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>1</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole1">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>2</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole2">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>3</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole3">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>4</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole4">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>5</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole5">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>6</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole6">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>7</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole7">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>8</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole8">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>9</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole9">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-							</table>
-							<!-- </div>
-							<div class="col-xs-12 col-md-6"> -->
-							<table id="table2">
-									<tr>
-										<table>
-											<tr>
-												<th>10</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole10">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>11</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole11">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>12</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole12">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>13</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole13">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>14</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole14">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>15</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole15">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>16</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole16">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>17</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole17">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
-									<tr>
-										<table>
-											<tr>
-												<th>18</th>
-											</tr>
-											<tr>
-												<td>
-													<select id="hole18">
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</td>
-											</tr>
-										</table>
-									</tr>
+
+									<% for (var i = 1; i <= 18; i++){ %>
+										
+										<tr>
+											<table>
+												<tr>
+													<th><%=i%></th>
+												</tr>
+												<tr>
+													<td>
+			
+															<select id="hole<%=i%>">
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+															</select>
+														
+													</td>
+												</tr>
+											</table>
+										</tr>
+									<% } %>
+									
 									<tr>
 										<table>
 											<tr>
@@ -363,36 +112,33 @@
 								</table>
 							</div>
 						</div>
-								<a href="#" class="button" id="beginRound">Begin Round</a>
-								<div id="errors">Please enter names for all players!</div>
-								</div>
-							</div>
-						</div>
-
-							<div class="col-xs-12" id="holeScorecard">
-								
-								<table id="holeScore">
-									
-								</table>
-
-							</div>
-						<!-- </section> -->
+						<a href="#" class="button" id="beginRound">Begin Round</a>
+						<div id="errors">Please enter names for all players!</div>
 					</div>
-					
+				</div>
 				</div>
 
-			</div>
-			<!-- Main -->
+				<div class="col-xs-12" id="holeScorecard">
+								
+					<table id="holeScore">
+									
+					</table>
 
+				</div>
+						<!-- </section> -->
+			</div>
+					
 		</div>
+
+	</div>
+			<!-- Main -->
+</div>
 	<!-- /Main -->
-		<% console.log(currentUser.username); %>
+
 	<!-- Featured -->
 		<div id="featured">
 			<div class="divider"></div>
 		</div>
 	<!-- /Featured -->
-
-
 
 <% include partials/footer %>

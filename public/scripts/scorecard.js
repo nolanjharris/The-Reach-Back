@@ -23,6 +23,7 @@ $('#playerCount select').on('change', function(){
 });
 
 $('#beginRound').on('click', function(e){
+	console.log("clickeeddddddddd");
 	e.preventDefault();
 	var table = '<tr><th>Current Score<br><span id="topar">(to par)</span</th><th>Player</th><th colspan="3">Hole <span id="holenumber">1</span> Score</th></tr>';
 	var rows = $('#playerCountVal').val();
@@ -44,6 +45,7 @@ $('#beginRound').on('click', function(e){
 	$('.byline').text("Shake hands and let's begin! Enter scores after each hole!");
 	$('#holeScore').html(table);
 	$('#scorecardSetup').css('display', 'none');
+	$('#courseSelect').css('display', 'none');
 });
 
 var hole = 1;
@@ -66,6 +68,20 @@ $(document).on('click', '.subtract', function(){
 	}
 });
 
+$(document).on('change','#courseSelect', function(){
+	if($('#courseSelect').val() != "Custom Course"){
+		var course_id = $("#courseSelect").val(); 
+		console.log(course_id);
+		$("#holePar").load("/scorecard/pars",{crsid:course_id});
+		console.log("test");
+	} else {
+		$("#holePar").contentWindow.location.reload(true);
+		console.log("refreshed");
+	}
+});
+
+// $(`#hole1 option[value="${2+2}"]`).attr("selected","selected")
+
 $(document).on('click', '#nextHole', function(){
 		hole++;
 		if(hole === 18){
@@ -75,11 +91,10 @@ $(document).on('click', '#nextHole', function(){
 			$('#nextHole').text("Finish!");
 		} else if (hole === 19){
 			var winningScore = 100;
-			
-			console.log($());
 			hole = 1;
 			$('#nextHole').css('display', 'none');
 			$('#scorecardSetup').css('display', '');
+			$('#courseSelect').css('display', '');
 			$('.byline').text("Good Round! Ready for another?");
 			$('.add').click(false);
 			$('.subtract').click(false);

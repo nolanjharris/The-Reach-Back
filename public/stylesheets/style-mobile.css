@@ -314,6 +314,10 @@
 		width: 85vw;
 	}
 
+	#scorePage .button {
+		margin-left: 0px;
+	}
+
 	@media screen and (max-width: 400px){
 		#comment {
 		width: 82vw;

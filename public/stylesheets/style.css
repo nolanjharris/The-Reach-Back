@@ -257,19 +257,26 @@
 		width: 100%;
 	}
 
-	#scorePage .button {
+	#scorePage #beginRound {
 		padding: .5em 1.5em;
 		margin: 0 auto;
+		margin-left: -25px;
 	}
 
-	#table1 {
-		margin: 0;
-		/*float: right !important;*/
+	#courses {
+		text-align: center;
+		padding-left: 50px;
 	}
 
-	#table2 {
-		margin: 0;
-		/*float: left !important;*/
+	#courseSelect {
+		margin: 0 auto;
+		font-size: 1.3em;
+		border-radius: 5px;
+		padding: 0 15px;
+	}
+
+	#courseSelect option {
+		text-align: center;
 	}
 
 	#playerNames h3 {
@@ -296,7 +303,7 @@
 		margin: 5px 0;
 	}
 
-	#holePar {
+	#parList {
 		font-size: 1.5em;
 		font-weight: bold;
 		text-align: center;
@@ -311,7 +318,7 @@
 
 	#holeScorecard {
 		max-width: 100vw;
-		padding-left: 60px;
+		padding-left: 50px;
 		margin: 0 auto;
 	}
 
@@ -321,6 +328,7 @@
 
 	#holeScore {
 		margin: 1em auto;
+		padding: 0 10px;
 		font-size: 2em;
 	}
 
