@@ -46,7 +46,6 @@ router.post('/scorecard/score', function(req, res, next){
 				} else {
 					user.scores.push(score._id);
 					user.save();
-					// console.log(user.scores);
 					res.redirect("/stats");
 				}
 			});

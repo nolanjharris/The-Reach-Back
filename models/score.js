@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 var scoreSchema = new mongoose.Schema({
-    toPar: String,
+    toPar: Number,
     date: String,
     course: String,
     player: {

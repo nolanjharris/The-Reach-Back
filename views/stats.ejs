@@ -2,32 +2,45 @@
 
 <div id="page">
 	<div class="container">
+
+		<div class="panel panel-success">
+			<!-- Default panel contents -->
+			<div class="panel-heading"><h1>ReachBack Stats and Ranks</h1></div>
 			
-		<table>
-			<thead>
-				<td>Player</td>
-				<td>Course</td>
-				<td>Score</td>
-				<td>Date</td>
-			</thead>
-			<tbody>
-				<% scores.forEach(function(score){%>
-				<tr>
-					<td><%= score.player.username %></td>
-					<td><%= score.course %></td>
-					<td><%= score.toPar %></td>
-					<td><%= score.date %></td>
-				</tr>
-				<%});%>
-			</tbody>
-		</table>
+
+			<!-- Table -->
+			<table class="table">
+				<thead>
+					<td><strong>ReachBack Rank</strong></td>
+					<td><strong>Player</strong></td>
+					<td><strong>Average Score</strong></td>
+					<td class="hidden-xs"><strong>Latest Course Played</strong></td>
+					<td class="hidden-xs"><strong>Latest Score</strong></td>
+					<td class="hidden-xs"><strong>Last Played On</strong></td>
+				</thead>
+				<tbody>
+					<% var i = 1; %>
+					<% stats.forEach(function(stat){%>
+					<tr>
+						<td><%= i %></td>
+						<td><%= stat._id.toUpperCase() %></td>
+						<td><%- Math.round(stat.average * 100) / 100; %></td>
+						<td class="hidden-xs"><%= stat.last_course %></td>
+						<td class="hidden-xs"><%= stat.last_score %></td>
+						<td class="hidden-xs"><%= stat.last_date %></td>
+					</tr>
+					<%i++;%>
+					<%});%>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 
-	<!-- Featured -->
-		<div id="featured">
-			<div class="divider"></div>
-		</div>
-	<!-- /Featured -->
+<!-- Featured -->
+<div id="featured">
+	<div class="divider"></div>
+</div>
+<!-- /Featured -->
 
 <% include partials/footer %>

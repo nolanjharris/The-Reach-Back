@@ -102,7 +102,7 @@ $(document).on('click', '#nextHole', function(){
 			$('.add').click(false);
 			$('.subtract').click(false);
 			if($('#currentUser').text() != ""){
-				var score = $('#currentUserScore').text();
+				var score = parseInt($('#currentUserScore').text(), 10);
 				var course = $('#courseSelect').val();
 				var date = new Date().toDateString();
 				$.post('/scorecard/score', {userScore: score, currentCourse: course, currentDate: date});
