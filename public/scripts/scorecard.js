@@ -1,3 +1,12 @@
+$(document).on('change','#courseSelect', function(){
+	if($('#courseSelect').val() != "Custom Course"){
+		var course_id = $("#courseSelect").val(); 
+		$("#holePar").load("/scorecard/pars",{crsid:course_id});
+	} else {
+		$("#holePar").load("scorecard/custom");
+	}
+});
+
 $('#holePar select').on('change', function() {
  	$('#coursePar').text(function(){
 		var par = 0;
@@ -23,16 +32,21 @@ $('#playerCount select').on('change', function(){
 });
 
 $('#beginRound').on('click', function(e){
-	console.log("clickeeddddddddd");
-	e.preventDefault();
 	var table = '<tr><th>Current Score<br><span id="topar">(to par)</span</th><th>Player</th><th colspan="3">Hole <span id="holenumber">1</span> Score</th></tr>';
 	var rows = $('#playerCountVal').val();
 	for(var r = 1; r <= rows; r++){
 		if($('#player' + r).val() === ''){
+			e.preventDefault();
 			return $('#errors').show();
+
 		} else {
 			table += '<tr>';
-			table += '<td class="totalScore">0</td>';
+			if(r === 1){
+				table += '<td class="totalScore" id="currentUserScore">0</td>';
+			} else {
+				table += '<td class="totalScore">0</td>';
+
+			}
 			table += '<td class="playerName">' + $('#player' + r).val().toUpperCase() + '</td>';
 			table += '<td class="subtract"><button class="button">-</button></td>';
 			table += '<td class="par" id="player' + r + 'Score"' + '>' + parseInt($('#hole1').val(), 10) + '</td>';
@@ -68,17 +82,6 @@ $(document).on('click', '.subtract', function(){
 	}
 });
 
-$(document).on('change','#courseSelect', function(){
-	if($('#courseSelect').val() != "Custom Course"){
-		var course_id = $("#courseSelect").val(); 
-		console.log(course_id);
-		$("#holePar").load("/scorecard/pars",{crsid:course_id});
-		console.log("test");
-	} else {
-		$("#holePar").contentWindow.location.reload(true);
-		console.log("refreshed");
-	}
-});
 
 // $(`#hole1 option[value="${2+2}"]`).attr("selected","selected")
 
@@ -98,6 +101,12 @@ $(document).on('click', '#nextHole', function(){
 			$('.byline').text("Good Round! Ready for another?");
 			$('.add').click(false);
 			$('.subtract').click(false);
+			if($('#currentUser').text() != ""){
+				var score = $('#currentUserScore').text();
+				var course = $('#courseSelect').val();
+				var date = new Date().toDateString();
+				$.post('/scorecard/score', {userScore: score, currentCourse: course, currentDate: date});
+			}
 		} else {
 			$('#holenumber').text(hole);
 			$('.par').text(parseInt($('#hole' + hole).val(), 10));

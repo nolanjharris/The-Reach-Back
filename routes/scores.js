@@ -21,23 +21,37 @@ router.post('/scorecard/pars', function(req, res, next){
 	});
 });
 
-router.post('/scorecard/score', function(req, res){
-		var toPar = req.body.toPar;
-		var date = req.body.date;
-		var course = req.body.course;
-		var player = {
-			id: req.user._id,
-			username: req.user.username
-		};
-		var newScore = {toPar: toPar, date: date, course: course, player: player};
+router.get('/scorecard/custom', function(req, res, next){
+	res.render('partials/customPars');
+});
 
-		Score.create(newScore, function(err, newlyCreated){
-			if(err){
-				console.log(err);
-			} else {
-				res.redirect("/stats");
-			}
-	});
+router.post('/scorecard/score', function(req, res, next){
+	User.findById(req.user._id, function(err, user){
+		if(err){
+			console.log(err);
+			res.redirect("/scorecard");
+		} else {
+			var toPar = req.body.userScore;
+			var date = req.body.currentDate;
+			var course = req.body.currentCourse;
+			var player = {
+				id: req.user._id,
+				username: req.user.username
+			};
+			var newScore = {toPar: toPar, date: date, course: course, player: player};
+
+			Score.create(newScore, function(err, score){
+				if(err){
+					console.log(err);
+				} else {
+					user.scores.push(score._id);
+					user.save();
+					// console.log(user.scores);
+					res.redirect("/stats");
+				}
+			});
+		}
+	});	
 });
 
 module.exports = router;

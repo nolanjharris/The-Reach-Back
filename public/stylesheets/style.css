@@ -215,6 +215,7 @@
 		font-size: 1.1em;
 		padding-top: 10px;
 		display: none;
+		margin-left: -30px;
 	}
 
 	#playerCount {
@@ -260,7 +261,7 @@
 	#scorePage #beginRound {
 		padding: .5em 1.5em;
 		margin: 0 auto;
-		margin-left: -25px;
+		margin-left: -30px;
 	}
 
 	#courses {

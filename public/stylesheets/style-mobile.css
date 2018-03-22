@@ -314,6 +314,14 @@
 		width: 85vw;
 	}
 
+	#scorePage #beginRound {
+		margin-left: -5px;
+	}
+
+	#errors {
+		margin-left: -10px;
+	}
+
 	#scorePage .button {
 		margin-left: 0px;
 	}

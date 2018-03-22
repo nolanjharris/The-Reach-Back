@@ -1,0 +1,46 @@
+<table id="table1">
+	
+	<tr>
+		<table>
+			<tr>
+				<th>Hole</th>
+			</tr>
+			<tr>
+				<th class="mt-4">Par</th>
+			</tr>
+		</table>
+	</tr>
+
+	<% for (var i = 1; i <= 18; i++){ %>
+		
+		<tr>
+		<table>
+		<tr>
+		<th><%=i%></th>
+		</tr>
+		<tr>
+		<td>
+		
+		<select id="hole<%=i%>">
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		</select>
+		
+		</td>
+		</tr>
+		</table>
+		</tr>
+		<% } %>
+		
+		<tr>
+			<table>
+				<tr>
+					<th>CoursePar</th>
+				</tr>
+				<tr>
+					<th id="coursePar">54</th>
+				</tr>
+			</table>
+		</tr>
+	</table>
