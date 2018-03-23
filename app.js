@@ -3,7 +3,8 @@ var express       = require("express"),
 	bodyParser    = require("body-parser"),
 	mongoose      = require("mongoose"),
 	passport      = require("passport"),
-	LocalStrategy = require("passport-local");
+	LocalStrategy = require("passport-local"),
+	flash         = require("connect-flash");
 
 var	User = require("./models/user");
 var Course = require('./models/course');
@@ -26,6 +27,7 @@ app.use(express.static(__dirname + "/public"));
 //PASSPORT CONFIG
 app.use(require("express-session")({
 	secret: "DiscGolf for Life!",
+	cookie: {maxAge: 600000},
 	resave: false,
 	saveUninitialized: false
 }));

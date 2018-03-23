@@ -211,11 +211,15 @@
 		margin: 0 auto !important;
 	}
 
-	#errors {
+	.errors {
 		font-size: 1.1em;
 		padding-top: 10px;
 		display: none;
 		margin-left: -30px;
+	}
+
+	#loginError {
+		font-size: .6em;
 	}
 
 	#playerCount {
@@ -446,6 +450,11 @@
 		width: 87vw;
 		resize: none;
 		border-radius: 10px;
+	}
+
+	.panel-heading {
+		text-align: center;
+		font-size: 2em;
 	}
 
 	header
@@ -1280,7 +1289,7 @@
 		border-left: 1px solid #e6e6e6;
 		font-size: .6em;
 		text-align: center;
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 
 	#registerNow button {
@@ -1293,10 +1302,6 @@
 		/*font-weight: bold;*/
 		margin-top: 5px;
 		/*position: relative;*/
-	}
-
-	#registerNow p {
-		margin-bottom: 0;
 	}
 
 	#registerNow h1 {

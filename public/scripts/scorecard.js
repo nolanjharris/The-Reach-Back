@@ -4,6 +4,7 @@ $(document).on('change','#courseSelect', function(){
 		$("#holePar").load("/scorecard/pars",{crsid:course_id});
 	} else {
 		$("#holePar").load("scorecard/custom");
+		$("#custom").css('display', '');
 	}
 });
 
@@ -35,10 +36,14 @@ $('#beginRound').on('click', function(e){
 	var table = '<tr><th>Current Score<br><span id="topar">(to par)</span</th><th>Player</th><th colspan="3">Hole <span id="holenumber">1</span> Score</th></tr>';
 	var rows = $('#playerCountVal').val();
 	for(var r = 1; r <= rows; r++){
+		$('#playerError').hide();
+		$('#courseError').hide();
 		if($('#player' + r).val() === ''){
 			e.preventDefault();
-			return $('#errors').show();
-
+			return $('#playerError').show();
+		} else if ($('#courseSelect').val() === 'Choose The Course'){
+			e.preventDefault();
+			return $('#courseError').show();
 		} else {
 			table += '<tr>';
 			if(r === 1){
@@ -53,7 +58,7 @@ $('#beginRound').on('click', function(e){
 			table += '<td class="add"><button class="button">+</button></td>';
 			table += '</tr>';
 		}
-		$('#errors').hide();
+		$('.errors').hide();
 	}
 	table += '<tr><td colspan="5"><button class="button" id="nextHole">Next Hole</button></td></tr>';
 	$('.byline').text("Shake hands and let's begin! Enter scores after each hole!");
@@ -103,7 +108,11 @@ $(document).on('click', '#nextHole', function(){
 			$('.subtract').click(false);
 			if($('#currentUser').text() != ""){
 				var score = parseInt($('#currentUserScore').text(), 10);
-				var course = $('#courseSelect').val();
+				if($('#courseSelect').val() == 'Custom Course'){
+					var course = $('#custom').val();
+				} else {
+					var course = $('#courseSelect').val();
+				}
 				var date = new Date().toDateString();
 				$.post('/scorecard/score', {userScore: score, currentCourse: course, currentDate: date});
 			}

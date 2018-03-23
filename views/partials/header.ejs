@@ -11,28 +11,30 @@
 		<script> 
 			$(document).ready(function(){
 				var path = window.location.pathname;
-				if(path=="/") { var li = $('#nav li a')[0].parentNode; }
-				else if (path.match(/\/course\//)) {var li = $('#nav li a')[2].parentNode;}
-				else {
-					var li = $(`#nav li a[href="${path}"]`)[0].parentNode;
-				};
-				li.setAttribute("class","active");
-			});
-			</script>
-			<script> 
-			$(document).ready(function(){
-				var path = window.location.pathname;
-				var ids = {		"/":"homepage", 
-								"/courses/1":"coursePage", 
-								"/scorecard":"scorePage",
-								"/videos/1":"videoPage"
-							};
 				var b = $('body')[0];
-					if(path.match(/\/course\//)){
-						b.setAttribute("id", "showPage");
+				var li;
+				var pathId;
+					if (path === "/scorecard"){
+						pathId = "scorePage";
+						li = $('#nav li a')[1].parentNode;
+					} else if (path.match(/\/course\//)){
+						pathId = "showPage";
+						li = $('#nav li a')[2].parentNode;
+					} else if (path.match(/\/courses\//)){
+						pathId = "coursePage";
+						li = $('#nav li a')[2].parentNode;
+					} else if (path === "/stats"){
+						pathId = "statsPage";
+						li = $('#nav li a')[3].parentNode;
+					} else if (path.match(/\/videos\//)){
+						pathId = "videoPage";
+						li = $('#nav li a')[4].parentNode;
 					} else {
-						b.setAttribute("id",ids[path]);
+						pathId = "homepage";
+						li = $('#nav li a')[0].parentNode;
 					}
+					b.setAttribute("id", pathId);
+					li.setAttribute("class", "active");
 			});
 		</script>
 		
@@ -59,10 +61,11 @@
         <div class="row">
           <div class="col-xs-12 mx-auto col-sm-6">
           	<h1>Login</h1>
-			<form action="/login" method="GET" id="loginForm">
-				<input type="text" name="username" placeholder="username">
-				<input type="password" name="password" placeholder="password">
-				<button class="button">Login</button>
+			<form>
+				<input type="text" name="username" id="username" placeholder="username">
+				<input type="password" name="password" id="password" placeholder="password">
+				<p id="loginError"></p>
+				<button class="button" id="loginButton">Login</button>
 			</form>
           </div>
           <div class="col-xs-12 mx-auto col-sm-6" id="registerNow">
