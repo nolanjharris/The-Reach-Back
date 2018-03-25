@@ -27,7 +27,7 @@ router.get('/stats', function(req, res, next){
 				if(err){
 					console.log(err);
 				} else {
-		            res.render("stats", {stats: result, scores: allScores, currentUser: currentUser});
+		            res.render("stats", {stats: result, scores: allScores});
 				};
 			});
 			// console.log(agg);

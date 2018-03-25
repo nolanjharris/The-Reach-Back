@@ -54,10 +54,10 @@
 	
 	#homepage #main
 	{
-		margin-top: 0;
-		padding-top: 0;
+		margin-top: 1em;
+		padding-top: 1em;
 		padding-bottom: 1em;
-		margin-bottom: 2em;
+		margin-bottom: 0;
 	}
 
 /*********************************************************************************/
