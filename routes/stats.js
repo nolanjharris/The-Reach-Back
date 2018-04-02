@@ -6,12 +6,10 @@ var Score = require('../models/score');
 
 // scorecard route
 router.get('/stats', function(req, res, next){
-	console.log("get /stats");
 	Score.find({}, function(err, allScores){
         if(err){
             console.log(err);
         }else{
-        	console.log("aggregating Score");
 	    	var agg = Score.aggregate([
 				{ $match: {} },
 				{ $group: { 

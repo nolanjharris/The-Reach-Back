@@ -9,14 +9,17 @@ $(document).on('change','#courseSelect', function(){
 });
 
 $('#holePar select').on('change', function() {
- 	$('#coursePar').text(function(){
+	$('#coursePar').text(function(){
 		var par = 0;
-		for(var i = 01; i <= 18; i++){
+		for(var i = 1; i <= 18; i++){
+			console.log($('#hole' + i).val());
 			par += parseInt($('#hole' + i).val(), 10);
 		}
+		console.log(par);
 		return par;
 	});
 });
+
 
 var playerCountValue;
 var n = 8;
@@ -44,6 +47,9 @@ $('#beginRound').on('click', function(e){
 		} else if ($('#courseSelect').val() === 'Choose The Course'){
 			e.preventDefault();
 			return $('#courseError').show();
+		} else if (($('#courseSelect').val() === 'Custom Course') && ($('#custom').val() === "")) {
+			e.preventDefault();
+			return $('#courseNameError').show();
 		} else {
 			table += '<tr>';
 			if(r === 1){
@@ -59,6 +65,7 @@ $('#beginRound').on('click', function(e){
 			table += '</tr>';
 		}
 		$('.errors').hide();
+		$('#custom').hide();
 	}
 	table += '<tr><td colspan="5"><button class="button" id="nextHole">Next Hole</button></td></tr>';
 	$('.byline').text("Shake hands and let's begin! Enter scores after each hole!");
