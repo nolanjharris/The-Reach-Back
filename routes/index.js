@@ -14,19 +14,45 @@ router.get('/', function(req, res, next){
 });
 
 //handle sign up logic
-router.post("/register", function(req, res){
-	var newUser = new User({username: req.body.username});
-	User.register(newUser, req.body.password, function(err, user){
-		if(err){
-			console.log(err);
-			return res.redirect(req.get("referrer"));
-		}
-		passport.authenticate("local")(req, res, function(){
-			return res.redirect(req.get("referrer"));
-		});
-	});
+router.post("/register", function(req, res, next){
+  console.log('made it to the route');
+  User.findOne({username: req.body.username}, function(err, user){
+    console.log('past first username');
+    if (err) {return res.send({'status':'err','message':err.message}); }
+    if (user) {return res.send({'status':'fail','message':'Sorry, that username is already taken'}); }
+    else {
+      var newUser = new User({username: req.body.username});
+      console.log('past second username');
+    User.register(newUser, req.body.password, function(err, user){
+      if(err){
+        console.log(err);
+        return res.redirect(req.get("referrer"));
+      }
+      console.log('passport.authenticate so were close!');
+      passport.authenticate("local")(req, res, function(){
+        return res.redirect(req.get("referrer"));
+      });
+    });
+    }
+  });
 });
 
+// router.get('/register/auth', function(req, res, next) {
+//     passport.authenticate('local', function(err, user, info) {
+//       if (err) {return res.send({'status':'err','message':err.message}); }
+//       if (!user) {return res.send({'status':'fail','message':info.message}); }
+//       req.logIn(user, function(err) {
+//         if (err) { return res.send({'status':'err','message':err.message}); }
+//         return res.send({'status': 'ok'});
+//       });
+//     })(req, res, next);
+//   },
+//   function(err, req, res, next) {
+//     if (err) { return next(err); }
+//     return res.send({'status':'err','message':err.message});
+// });
+
+//handle login logic
 router.get('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err); }
