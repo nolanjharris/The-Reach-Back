@@ -8,18 +8,6 @@ $(document).on('change','#courseSelect', function(){
 	}
 });
 
-$('#holePar select').on('change', function() {
-	$('#coursePar').text(function(){
-		var par = 0;
-		for(var i = 1; i <= 18; i++){
-			console.log($('#hole' + i).val());
-			par += parseInt($('#hole' + i).val(), 10);
-		}
-		console.log(par);
-		return par;
-	});
-});
-
 
 var playerCountValue;
 var n = 8;
@@ -77,6 +65,7 @@ $('#beginRound').on('click', function(e){
 var hole = 1;
 
 $(document).on('click', '.add', function(){
+	console.log('add 1');
 	var $row = $(this).parents('tr');
 	var holeScore = parseInt($row.find('td[class="par"]').text(), 10);
 	var totalScore = parseInt($row.find('td[class="totalScore"]').text(), 10);

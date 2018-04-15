@@ -222,6 +222,10 @@
 		font-size: .6em;
 	}
 
+	#registerError {
+		font-size: .6em;
+	}
+
 	#playerCount {
 		/*width: 50%;*/
 		margin-top: 30px;
