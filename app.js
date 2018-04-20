@@ -19,7 +19,7 @@ var statsRoutes = require("./routes/stats");
 var scorecardRoutes = require("./routes/scores");
 
 // Connect to mongoose
-mongoose.connect("mongodb://localhost/reachback");
+mongoose.connect("mongodb://nolanjames:nhspiffy123@ds135619.mlab.com:35619/thereachback");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
