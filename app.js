@@ -27,7 +27,7 @@ app.use(express.static(__dirname + "/public"));
 //PASSPORT CONFIG
 app.use(require("express-session")({
 	secret: "DiscGolf for Life!",
-	cookie: {maxAge: 600000},
+	cookie: {maxAge: 6000000},
 	resave: false,
 	saveUninitialized: false
 }));
