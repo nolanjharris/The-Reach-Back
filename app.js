@@ -50,4 +50,4 @@ app.use(statsRoutes);
 app.use(scorecardRoutes);
 
 app.listen(process.env.PORT || 3000);
-console.log('Running on ' + process.env.PORT + ".......");
+console.log('Running on ' + (process.env.PORT || 'localHost') + ".......");
