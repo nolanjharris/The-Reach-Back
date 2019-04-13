@@ -11,11 +11,14 @@
 /*********************************************************************************/
 /* Basic                                                                         */
 /*********************************************************************************/
+	body , html {
+		overflow-x: hidden;
+	}
+
 
 	body
 	{
 		background: #202020 url(../images/img01.jpg) repeat;
-		overflow-x: hidden;
 		padding-right: 0 !important;
 
 	}
