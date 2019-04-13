@@ -18,9 +18,11 @@
 
 	body
 	{
+		/*background: #202020 url(../images/img01.jpg) repeat;
+		overflow-x: hidden;*/
+		padding-right: 0 !important;
 		padding-top: 0;
 		overflow-x: hidden !important;
-		position: relative;	
 	}
 
 	h2, h3, h4, h5, h6
