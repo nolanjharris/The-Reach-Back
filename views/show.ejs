@@ -1,56 +1,62 @@
 <% include partials/header %>
-	<div id="page">
-		<div id="main" class="container">	
-			<div class="row">
-				<header>
-					<h2><%= course.name %> Disc Golf Park</h2>
-				</header>
-				<div class="col-xs-12 col-md-6">
-					<img class="image left" src="<%= course.image_url %>">
-				</div>
-				<div class="col-xs-12 col-md-6 courseInfo">
-					<p class="byline"><span class="center"><%= course.location %></span></p>
+<div id="page">
+  <div id="main" class="container">
+    <div class="row">
+      <header>
+        <h2><%= course.name %> Disc Golf Course</h2>
+      </header>
+      <div class="col-xs-12 col-md-6">
+        <img class="image left" src="<%= course.image_url %>" />
+      </div>
+      <div class="col-xs-12 col-md-6 courseInfo">
+        <p class="byline"><span class="center"><%= course.location %></span></p>
 
-					<p>Par Info: <span class="right"><%= course.par %></span></p>
-					
-					<p>Holes: <span class="right"><%= course.holes %></span></p>
+        <p>Par Info: <span class="right"><%= course.par %></span></p>
 
-					<p>Course Length: <span class="right"><%= course.length %></span></p>
-					
-					<p>Year Established <span class="right"><%= course.yearEst %></span></p>
+        <p>Holes: <span class="right"><%= course.holes %></span></p>
 
-					<p>Course Description:<span class="justify"><br><%= course.description %></span></p>
-					
-					<p>Local Directions:<br><span class="justify"><%= course.directions %></span></p>
-				</div>
-			</div>
-			<hr>
-			<h2 class="mb-2">Comments</h2>
-			<% course.comments.forEach(function(comment){ %>
-				<div class="row">
-					<div class="col-xs-12" id="comment">
-						<strong><%= comment.author.username %></strong>
-						<p>
-							<%= comment.text %>
-						</p>
-					</div>
-				</div>
-			<% }) %>
-			<% if (currentUser) { %>
-				<div class="row">
-					<form action="/course/<%= course._id %>/comments" method="POST">
-						<label for="comment">Add Comment!</label>
-						<textarea rows="3" id="comment" name="comment[text]"></textarea>
-						<button type="submit" class="button">Submit Comment</button>
-					</form>
-				</div>
-			<% } %>
-			
-		</div>
-	</div>
+        <p>Course Length: <span class="right"><%= course.length %></span></p>
 
-	<div id="featured">
-		<div class="divider"></div>
-	</div>
+        <p>Year Established <span class="right"><%= course.yearEst %></span></p>
+
+        <p>
+          Course Description:<span class="justify"
+            ><br /><%= course.description %></span
+          >
+        </p>
+
+        <p>
+          Local Directions:<br /><span class="justify"
+            ><%= course.directions %></span
+          >
+        </p>
+      </div>
+    </div>
+    <hr />
+    <h2 class="mb-2">Comments</h2>
+    <% course.comments.forEach(function(comment){ %>
+    <div class="row">
+      <div class="col-xs-12" id="comment">
+        <strong><%= comment.author.username %></strong>
+        <p>
+          <%= comment.text %>
+        </p>
+      </div>
+    </div>
+    <% }) %> <% if (currentUser) { %>
+    <div class="row">
+      <form action="/course/<%= course._id %>/comments" method="POST">
+        <label for="comment">Add Comment!</label>
+        <textarea rows="3" id="comment" name="comment[text]"></textarea>
+        <button type="submit" class="button">Submit Comment</button>
+      </form>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<div id="featured">
+  <div class="divider"></div>
+</div>
 
 <% include partials/footer %>

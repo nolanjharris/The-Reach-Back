@@ -1,12 +1,12 @@
-var express       = require("express"),
-	app           = express(),
-	bodyParser    = require("body-parser"),
-	mongoose      = require("mongoose"),
-	passport      = require("passport"),
+var express = require("express"),
+	app = express(),
+	bodyParser = require("body-parser"),
+	mongoose = require("mongoose"),
+	passport = require("passport"),
 	LocalStrategy = require("passport-local"),
-	flash         = require("connect-flash");
+	flash = require("connect-flash");
 
-var	User = require("./models/user");
+var User = require("./models/user");
 var Course = require('./models/course');
 var Video = require('./models/videos');
 var Comment = require('./models/comment');
@@ -19,15 +19,21 @@ var statsRoutes = require("./routes/stats");
 var scorecardRoutes = require("./routes/scores");
 
 // Connect to mongoose
-mongoose.connect("mongodb://nolanjharris:nhspiffy123@ds135619.mlab.com:35619/thereachback");
-app.use(bodyParser.urlencoded({extended: true}));
+mongoose.connect("mongodb://nolanjharris:nhspiffy123@ds135619.mlab.com:35619/thereachback", {
+	useNewUrlParser: true
+});
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
 //PASSPORT CONFIG
 app.use(require("express-session")({
 	secret: "DiscGolf for Life!",
-	cookie: {maxAge: 6000000},
+	cookie: {
+		maxAge: 6000000
+	},
 	resave: false,
 	saveUninitialized: false
 }));
@@ -38,7 +44,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
 	res.locals.currentUser = req.user;
 	next();
 });

@@ -1,43 +1,70 @@
 <% include partials/header %>
 
-<div id="page">
-	<div class="container">
+<!-- <a href="/stats/:id">current user stats</a> -->
 
-		<div class="panel panel-success">
-			<!-- Default panel contents -->
-			<div class="panel-heading"><h1>ReachBack Stats</h1></div>
-			<!-- Table -->
-			<table class="table">
-				<thead>
-					<td><strong>Rank</strong></td>
-					<td><strong>Player</strong></td>
-					<td><strong>Average Score</strong></td>
-					<td class="hidden-xs"><strong>Last Course Played</strong></td>
-					<td class="hidden-xs"><strong>Latest Score</strong></td>
-					<td class="hidden-xs"><strong>Last Played On</strong></td>
-				</thead>
-				<tbody>
-					<% var i = 1; %>
-					<% stats.forEach(function(stat){%>
-					<tr>
-						<td><%= i %></td>
-						<td><%= stat._id.toUpperCase() %></td>
-						<td><%- Math.round(stat.average * 100) / 100; %></td>
-						<td class="hidden-xs"><%= stat.last_course %></td>
-						<td class="hidden-xs"><%= stat.last_score %></td>
-						<td class="hidden-xs"><%= stat.last_date %></td>
-					</tr>
-					<%i++;%>
-					<%});%>
-				</tbody>
-			</table>
-		</div>
-	</div>
+
+<div id="page">
+  <div class="container">
+    <% if(currentUser) { %>
+    <div class="panel panel-success">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h1>Rounds played by <%= currentUser.username %></h1>
+      </div>
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <td><strong>Date</strong></td>
+          <td><strong>Course</strong></td>
+          <td><strong>Score (to par)</strong></td>
+        </thead>
+        <tbody>
+          <% scores.filter(a => a.player.username == currentUser.username).forEach(function(score){%>
+          <tr>
+            <td><%= score.date.toUpperCase() %></td>
+            <td><%= score.course.toUpperCase() %></td>
+            <td><%= score.toPar %></td>
+          </tr>
+          <%});%>
+        </tbody>
+      </table>
+    </div>
+    <% } %>
+    <div class="panel panel-success">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h1>ReachBack User Rankings</h1>
+      </div>
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <td><strong>Rank</strong></td>
+          <td><strong>Player</strong></td>
+          <td><strong>Avg Score (to par)</strong></td>
+          <td class="hidden-xs"><strong>Last Course Played</strong></td>
+          <td class="hidden-xs"><strong>Latest Score</strong></td>
+          <td class="hidden-xs"><strong>Last Played On</strong></td>
+        </thead>
+        <tbody>
+          <% var i = 1; %> <% stats.forEach(function(stat){%>
+          <tr>
+            <td><%= i %></td>
+            <td><%= stat._id.toUpperCase() %></td>
+            <td><%- Math.round(stat.average * 100) / 100; %></td>
+            <td class="hidden-xs"><%= stat.last_course %></td>
+            <td class="hidden-xs"><%= stat.last_score %></td>
+            <td class="hidden-xs"><%= stat.last_date %></td>
+          </tr>
+          <%i++;%> <%});%>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
 <!-- Featured -->
 <div id="featured">
-	<div class="divider"></div>
+  <div class="divider"></div>
 </div>
 <!-- /Featured -->
 

@@ -1,5 +1,36 @@
 <% include partials/header %>
 
+<div id="page">
+    <div class="container">
+        <div class="panel panel-success">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <h1>Rounds played by <%= currentUser.username %></h1>
+            </div>
+            <!-- Table -->
+            <table class="table">
+                <thead>
+                    <td><strong>Date</strong></td>
+                    <td><strong>Course</strong></td>
+                    <td><strong>Score (to par)</strong></td>
+                </thead>
+                <tbody>
+                    <% stats.forEach(function(round){%>
+                    <tr>
+                        <td><%= round.date.toUpperCase() %></td>
+                        <td><%= round.course.toUpperCase() %></td>
+                        <td><%= round.score %></td>
+                    </tr>
+                    <%});%>
+                </tbody>
+        </div>
+    </div>
+</div>
 
+<!-- Featured -->
+<div id="featured">
+    <div class="divider"></div>
+</div>
+<!-- /Featured -->
 
 <% include partials/footer %>
